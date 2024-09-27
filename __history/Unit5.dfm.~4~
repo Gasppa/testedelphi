@@ -1,0 +1,53 @@
+inherited TF_Departamento5: TTF_Departamento5
+  Caption = 'TF_Departamento5'
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited PNL_Header: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+    inherited LBL_Title: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+  end
+  inherited PNL_Footer: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+  end
+  inherited DBGrid1: TDBGrid
+    DataSource = DM.DS_Empregados
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'id_empregado'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'cod_departamento'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nm_empregado'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nm_funcao'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'data_admissao'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'salario'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'comissao'
+        Visible = True
+      end>
+  end
+end

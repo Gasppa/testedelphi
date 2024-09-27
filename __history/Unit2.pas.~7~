@@ -1,0 +1,39 @@
+unit Unit2;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids, DataModule, TF_CadEmpregado;
+
+type
+  TForm2 = class(TForm)
+    DBGrid1: TDBGrid;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+  FormCadEmpregado: TFRM_CadEmpregado;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm2.Button1Click(Sender: TObject);
+begin
+  FormCadEmpregado := TFRM_CadEmpregado.Create(Self);
+  try
+    FormCadEmpregado.ShowModal();
+  finally
+    FormCadEmpregado.Free();
+  end;
+end;
+
+end.

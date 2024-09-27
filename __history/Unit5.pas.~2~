@@ -1,0 +1,32 @@
+unit Unit5;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, TF_Departamentos, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls, DataModule;
+
+type
+  TTF_Departamento5 = class(TTF_Departamento)
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TF_Departamento5: TTF_Departamento5;
+
+implementation
+
+{$R *.dfm}
+
+procedure TTF_Departamento5.FormCreate(Sender: TObject);
+begin
+  inherited;
+  DM.ZQ_Empregados.Refresh;
+end;
+
+end.

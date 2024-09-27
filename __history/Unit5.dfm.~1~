@@ -1,0 +1,14 @@
+inherited TF_Departamento5: TTF_Departamento5
+  Caption = 'TF_Departamento5'
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited PNL_Header: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+    inherited LBL_Title: TLabel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+  end
+  inherited PNL_Footer: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+  end
+end

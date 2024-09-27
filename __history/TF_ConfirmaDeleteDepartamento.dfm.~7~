@@ -1,0 +1,44 @@
+object FRM_ConfirmaDeleteDep: TFRM_ConfirmaDeleteDep
+  Left = 0
+  Top = 0
+  Caption = 'Excluir Departamento'
+  ClientHeight = 164
+  ClientWidth = 375
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+  object LBL_ConfirmMessage: TLabel
+    Left = 65
+    Top = 32
+    Width = 235
+    Height = 40
+    Alignment = taCenter
+    Caption = 'Voc'#234' tem certeza que gostaria de '#13#10'excluir esse departamento?'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 20
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object BTN_CancelDeleteDep: TButton
+    Left = 218
+    Top = 104
+    Width = 75
+    Height = 25
+    Caption = 'Cancelar'
+    TabOrder = 0
+  end
+  object BTN_ConfirmaDeleteDep: TButton
+    Left = 89
+    Top = 104
+    Width = 75
+    Height = 25
+    Caption = 'Confirmar'
+    TabOrder = 1
+  end
+end

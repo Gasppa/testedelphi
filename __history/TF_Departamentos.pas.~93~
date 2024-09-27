@@ -1,0 +1,80 @@
+unit TF_Departamentos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.ExtCtrls, DataModule, TF_CadDepartamento;
+
+type
+  TTF_Departamento = class(TForm)
+    PNL_Header: TPanel;
+    LBL_Title: TLabel;
+    BTN_CadastrarDep: TButton;
+    PNL_Footer: TPanel;
+    BTN_ExcluirDepartamento: TButton;
+    DBGrid1: TDBGrid;
+    BTN_EditarDepartamento: TButton;
+    procedure BTN_CadastrarDepClick(Sender: TObject);
+    procedure BTN_ExcluirDepartamentoClick(Sender: TObject);
+    procedure BTN_EditarDepartamentoClick(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TF_Departamento: TTF_Departamento;
+
+implementation
+
+{$R *.dfm}
+
+
+
+procedure TTF_Departamento.BTN_CadastrarDepClick(Sender: TObject);
+var
+  FormCadastro: TFRM_CadDepartamento;
+begin
+  FormCadastro := TFRM_CadDepartamento.Create(Self);
+  DM.ZQ_Departamentos.Append;
+  try
+    FormCadastro.ShowModal();
+  finally
+    FormCadastro.Free();
+  end;
+end;
+
+procedure TTF_Departamento.BTN_EditarDepartamentoClick(Sender: TObject);
+var
+  FormCadastro: TFRM_CadDepartamento;
+begin
+  FormCadastro := TFRM_CadDepartamento.Create(Self);
+  DM.ZQ_Departamentos.Edit;
+  try
+    FormCadastro.ShowModal();
+  finally
+    FormCadastro.Free();
+  end;
+end;
+
+procedure TTF_Departamento.BTN_ExcluirDepartamentoClick(Sender: TObject);
+begin
+  try
+    if (DM.ZQ_Departamentos.RecordCount > 0) and
+     (DM.ZQ_Departamentos.RecNo > -1) then
+      DM.ZQ_Departamentos.Delete;
+    ShowMessage('Registro deletado com sucesso!');
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Erro ao deletar registro: ' + E.Message);
+    end;
+  end;
+end;
+
+
+end.

@@ -1,0 +1,24 @@
+program Project1;
+
+uses
+  Vcl.Forms,
+  TF_Main in 'TF_Main.pas' {Form1},
+  DataModule in 'DataModule.pas' {DM: TDataModule},
+  TF_Departamentos in 'TF_Departamentos.pas' {TF_Departamentos},
+  TF_CadDepartamento in 'TF_CadDepartamento.pas' {FRM_CadDepartamento},
+  TF_CadEmpregado in 'TF_CadEmpregado.pas' {FRM_CadEmpregado},
+  TF_Empregados2 in 'TF_Empregados2.pas' {TF_Empregado};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TDM, DM);
+  Application.CreateForm(TTF_Departamento, TF_Departamento);
+  Application.CreateForm(TFRM_CadDepartamento, FRM_CadDepartamento);
+  Application.CreateForm(TFRM_CadEmpregado, FRM_CadEmpregado);
+  Application.CreateForm(TTF_Empregado, TF_Empregado);
+  Application.Run;
+end.

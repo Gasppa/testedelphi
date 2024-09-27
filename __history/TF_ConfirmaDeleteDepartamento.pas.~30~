@@ -1,0 +1,34 @@
+unit TF_ConfirmaDeleteDepartamento;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, DataModule;
+
+type
+  TFRM_ConfirmaDeleteDep = class(TForm)
+    LBL_ConfirmMessage: TLabel;
+    BTN_CancelDeleteDep: TButton;
+    BTN_ConfirmaDeleteDep: TButton;
+    procedure BTN_ConfirmaDeleteDepClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+
+  end;
+
+var
+  FRM_ConfirmaDeleteDep: TFRM_ConfirmaDeleteDep;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFRM_ConfirmaDeleteDep.BTN_ConfirmaDeleteDepClick(Sender: TObject);
+begin
+  DM.ZQ_DeleteDepartamento.ExecSQL;
+end;
+
+end.

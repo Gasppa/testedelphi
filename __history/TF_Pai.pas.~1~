@@ -1,0 +1,32 @@
+unit TF_Pai;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.Grids, Vcl.DBGrids;
+
+type
+  TFormPai = class(TForm)
+    DBGrid1: TDBGrid;
+    PNL_Footer: TPanel;
+    BTN_ExcluirDepartamento: TButton;
+    BTN_EditarDepartamento: TButton;
+    PNL_Header: TPanel;
+    LBL_Title: TLabel;
+    BTN_CadastrarDep: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormPai: TFormPai;
+
+implementation
+
+{$R *.dfm}
+
+end.

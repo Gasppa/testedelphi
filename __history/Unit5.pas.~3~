@@ -1,0 +1,25 @@
+unit Unit5;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, TF_Departamentos, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.ExtCtrls, DataModule;
+
+type
+  TTF_Departamento5 = class(TTF_Departamento)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TF_Departamento5: TTF_Departamento5;
+
+implementation
+
+{$R *.dfm}
+
+end.

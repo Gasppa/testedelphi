@@ -1,0 +1,15 @@
+program ProvaTecnica;
+
+uses
+  Vcl.Forms;
+
+{$R *.res}
+
+begin
+  ReportMemoryLeaksOnShutdown := True;
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+ // Application.CreateForm(TFRM_Main, FRM_Main);
+//  Application.CreateForm(TDM, DM);
+  Application.Run;
+end.

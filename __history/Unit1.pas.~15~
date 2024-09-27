@@ -1,0 +1,45 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, Vcl.ExtCtrls,
+  Vcl.Grids, Vcl.DBGrids, Vcl.Buttons, Vcl.DBCtrls, Vcl.ComCtrls,
+  ZAbstractConnection, ZConnection, ZAbstractRODataset, ZAbstractDataset,
+  ZDataset, Vcl.Mask, frxSmartMemo, frxClass, frxDBSet, frCoreClasses, Unit2,
+  Vcl.Menus;
+
+type
+  TForm1 = class(TForm)
+    MainMenu1: TMainMenu;
+    Empregados1: TMenuItem;
+    Empregados2: TMenuItem;
+    Departamentos1: TMenuItem;
+    procedure BTN_DepartamentosClick(Sender: TObject);
+    procedure BTN_EmpregadosClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TForm1.BTN_DepartamentosClick(Sender: TObject);
+begin
+  RL_Departamentos.ShowReport();
+end;
+
+procedure TForm1.BTN_EmpregadosClick(Sender: TObject);
+begin
+  RL_Empregados.ShowReport();
+end;
+
+end.

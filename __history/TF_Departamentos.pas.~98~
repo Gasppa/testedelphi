@@ -1,0 +1,35 @@
+unit TF_Departamentos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.ExtCtrls, DataModule, TF_CadDepartamento;
+
+type
+  TTF_Departamento = class(TForm)
+    PNL_Header: TPanel;
+    LBL_Title: TLabel;
+    BTN_CadastrarDep: TButton;
+    PNL_Footer: TPanel;
+    BTN_ExcluirDepartamento: TButton;
+    DBGrid1: TDBGrid;
+    BTN_EditarDepartamento: TButton;
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TF_Departamento: TTF_Departamento;
+
+implementation
+
+{$R *.dfm}
+
+
+
+end.

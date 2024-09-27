@@ -1,0 +1,44 @@
+unit Unit2;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, frxSmartMemo, Data.DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset, ZAbstractConnection, ZConnection, frxClass,
+  frxDBSet, frCoreClasses;
+
+type
+  TDataModule2 = class(TDataModule)
+    RL_Departamentos: TfrxReport;
+    RL_Empregados: TfrxReport;
+    RLDS_Departamentos: TfrxDBDataset;
+    RLDS_Empregados: TfrxDBDataset;
+    ZConnection: TZConnection;
+    ZQ_Departamentos: TZQuery;
+    ZQ_Empregados: TZQuery;
+    ZQ_Empregadosid_empregado: TZIntegerField;
+    ZQ_Empregadoscod_departamento: TZIntegerField;
+    ZQ_Empregadosnm_empregado: TZUnicodeStringField;
+    ZQ_Empregadosnm_funcao: TZUnicodeStringField;
+    ZQ_Empregadosdata_admissao: TZDateField;
+    ZQ_Empregadossalario: TZFMTBCDField;
+    ZQ_Empregadoscomissao: TZFMTBCDField;
+    ZQ_Departamentosid_departamento: TZIntegerField;
+    ZQ_Departamentosnm_departamento: TZUnicodeStringField;
+    ZQ_Departamentoslocal: TZUnicodeStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule2: TDataModule2;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

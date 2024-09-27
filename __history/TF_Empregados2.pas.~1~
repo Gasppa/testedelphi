@@ -1,0 +1,93 @@
+unit TF_Empregados;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.ExtCtrls, DataModule, TF_CadEmpregado;
+
+type
+  TTF_Empregado = class(TForm)
+    PNL_Header: TPanel;
+    LBL_Title: TLabel;
+    BTN_CadastrarDep: TButton;
+    PNL_Footer: TPanel;
+    BTN_ExcluirEmpregado: TButton;
+    DBGrid1: TDBGrid;
+    BTN_EditarEmpregado: TButton;
+    procedure BTN_CadastrarDepClick(Sender: TObject);
+    procedure BTN_ExcluirEmpregadoClick(Sender: TObject);
+    procedure DBG_EmpregadosCellClick(Column: TColumn);
+    procedure FormShow(Sender: TObject);
+    procedure BTN_EditarEmpregadoClick(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TF_Empregado: TTF_Empregado;
+
+implementation
+
+{$R *.dfm}
+
+
+
+procedure TTF_Empregado.BTN_CadastrarDepClick(Sender: TObject);
+var
+  FormCadastro: TFRM_CadEmpregado;
+begin
+  FormCadastro := TFRM_CadEmpregado.Create(Self);
+  DM.ZQ_Empregados.Append;
+  try
+    FormCadastro.ShowModal();
+  finally
+    FormCadastro.Free();
+  end;
+end;
+
+procedure TTF_Empregado.BTN_EditarEmpregadoClick(Sender: TObject);
+var
+  FormCadastro: TFRM_CadEmpregado;
+begin
+  FormCadastro := TFRM_CadEmpregado.Create(Self);
+  DM.ZQ_Empregados.Edit;
+  try
+    FormCadastro.ShowModal();
+  finally
+    FormCadastro.Free();
+  end;
+end;
+
+procedure TTF_Empregado.BTN_ExcluirEmpregadoClick(Sender: TObject);
+begin
+  try
+    if (DM.ZQ_Empregados.RecordCount > 0) and
+     (DM.ZQ_Empregados.RecNo > -1) then
+      DM.ZQ_Empregados.Delete;
+    ShowMessage('Registro deletado com sucesso!');
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Erro ao deletar registro: ' + E.Message);
+    end;
+  end;
+end;
+
+
+procedure TTF_Empregado.DBG_EmpregadosCellClick(Column: TColumn);
+begin
+  BTN_ExcluirEmpregado.Enabled := true;
+  BTN_EditarEmpregado.Enabled := true;
+end;
+
+procedure TTF_Empregado.FormShow(Sender: TObject);
+begin
+  DM.ZQ_Empregados.Refresh;
+end;
+
+end.
